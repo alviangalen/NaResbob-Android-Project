@@ -62,12 +62,12 @@
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/username"
@@ -75,12 +75,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputFullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputFullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/full_name"
@@ -88,12 +88,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputDateOfBirth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputDateOfBirth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/date_of_birth"
@@ -109,7 +109,6 @@
                 android:textAlignment="center">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputPassword"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="6dp"
@@ -117,6 +116,7 @@
                     app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/textInputPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/password"
@@ -125,7 +125,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputConfirmPassword"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
@@ -133,6 +132,7 @@
                     app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/textInputConfirmPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/confirm_password"

@@ -20,7 +20,7 @@ interface NaResbobApi {
     suspend fun register (
         @Field("username") username: String,
         @Field("fullname") fullname: String,
-        @Field("dateofbirth") dateofbirth: String,
+        @Field("dateOfBirth") dateOfbirth: String,
         @Field("password") password: String
     ) : BaseResponse<Any>
 

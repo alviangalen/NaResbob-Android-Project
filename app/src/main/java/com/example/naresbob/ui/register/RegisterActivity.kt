@@ -56,11 +56,11 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.btnSignup.setOnClickListener {
-            val username = binding.textInputUsername.editText?.text.toString().trim()
-            val fullname = binding.textInputFullname.editText?.text.toString().trim()
-            val dateOfBirth = binding.textInputDateOfBirth.editText?.text.toString().trim()
-            val password = binding.textInputPassword.editText?.text.toString().trim()
-            val confirmPassword = binding.textInputConfirmPassword.editText?.text.toString().trim()
+            val username = binding.textInputUsername.text.toString()
+            val fullname = binding.textInputFullname.text.toString()
+            val dateOfBirth = binding.textInputDateOfBirth.text.toString()
+            val password = binding.textInputPassword.text.toString()
+            val confirmPassword = binding.textInputConfirmPassword.text.toString()
 
 
             if (username.isEmpty() || password.isEmpty() || fullname.isEmpty() || dateOfBirth.isEmpty() || confirmPassword.isEmpty()) {
@@ -81,7 +81,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 if (ui.success) {
-                    Toast.makeText(this@RegisterActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    finish()
                 }
             }
         }

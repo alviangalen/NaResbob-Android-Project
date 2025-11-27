@@ -67,8 +67,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            val username = binding.textInputUsername.editText?.text.toString().trim()
-            val password = binding.textInputPassword.editText?.text.toString().trim()
+            val username = binding.textInputUsername.text.toString().trim()
+            val password = binding.textInputPassword.text.toString().trim()
 
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Field tidak boleh kosong", Toast.LENGTH_SHORT).show()
