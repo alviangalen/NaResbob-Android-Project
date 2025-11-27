@@ -7,18 +7,31 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsetsController
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.activity.viewModels
 import androidx.lifecycle.VIEW_MODEL_STORE_OWNER_KEY
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.ViewModel
 import com.example.naresbob.R
 import com.example.naresbob.databinding.ActivityLoginBinding
 import com.example.naresbob.ui.register.RegisterActivity
+import com.google.android.material.textfield.TextInputLayout
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import kotlin.getValue
 
+
+
+
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +62,36 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.tvSignup.setOnClickListener {
-            val Intent = Intent(this, RegisterActivity::class.java)
-            startActivity(Intent)
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
+
+        binding.btnLogin.setOnClickListener {
+            val username = binding.textInputUsername.editText?.text.toString().trim()
+            val password = binding.textInputPassword.editText?.text.toString().trim()
+
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Field tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            } else {
+                viewModel.login(username, password)
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.state.collect { ui ->
+                if (ui.isLoading) {
+                    Toast.makeText(this@LoginActivity, "Loading...", Toast.LENGTH_SHORT).show()
+                }
+
+                ui.message?.let {
+                    Toast.makeText(this@LoginActivity, it, Toast.LENGTH_SHORT).show()
+                }
+
+                if (ui.success) {
+                    Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
     }
 }
