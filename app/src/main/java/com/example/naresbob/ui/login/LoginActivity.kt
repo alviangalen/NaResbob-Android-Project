@@ -16,6 +16,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.VIEW_MODEL_STORE_OWNER_KEY
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.ViewModel
+import com.example.naresbob.MainActivity
 import com.example.naresbob.R
 import com.example.naresbob.databinding.ActivityLoginBinding
 import com.example.naresbob.ui.register.RegisterActivity
@@ -88,7 +89,8 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 if (ui.success) {
-                    Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    finish()
                 }
             }
         }
