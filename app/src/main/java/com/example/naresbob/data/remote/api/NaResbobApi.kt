@@ -15,4 +15,14 @@ interface NaResbobApi {
         @Field("password") password: String
     ) : BaseResponse<LoginResponse>
 
+    @FormUrlEncoded
+    @POST("auth/register.php")
+    suspend fun register (
+        @Field("username") username: String,
+        @Field("fullname") fullname: String,
+        @Field("dateofbirth") dateofbirth: String,
+        @Field("password") password: String
+    ) : BaseResponse<Any>
+
+
 }
